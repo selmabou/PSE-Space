@@ -1,3 +1,17 @@
+<?php
+session_start();
+require_once 'connection.php';
+
+if (!isset($_SESSION['user_id'])) {
+    header("Location: login.php");
+    exit();
+}
+
+
+?>
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -51,7 +65,7 @@
         <div class="card-body text-center">
           <h5 class="card-title">Welcome</h5>
           <img src="photos/download (2).jfif" alt="User Photo" class="img-fluid mb-3 rounded-circle-custom" style="max-width: 100px;">
-          <p class="card-text">Welcome to our platform!</p>
+          <p class="card-text">Welcome to PSE Space</p>
         </div>
       </div>
     </div>
