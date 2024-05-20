@@ -1,3 +1,28 @@
+<?php
+session_start();
+
+require_once 'connection.php';
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $email = $_POST['email'];
+    $password = $_POST['password'];
+
+    $stmt = $conn->prepare("SELECT * FROM users WHERE email = :email");
+    $stmt->bindParam(':email', $email);
+    $stmt->execute();
+    $user = $stmt->fetch();
+
+    if ($user && password_verify($password, $user['password'])) {
+        $_SESSION['user_id'] = $user['id']; 
+        header("Location: homepage.php"); 
+        exit();
+    } else {
+        $error = "Email or password incorrect";
+    }
+}
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -36,15 +61,19 @@
                     <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
                         <div class="form-group">
                             <label for="email">Email: </label>
-                            <input type="email" class="form-control" id="email" name="email" placeholder="Enter email">
+                            <input type="email" class="form-control" id="email" name="email" placeholder="Enter email" required>
                         </div>
                         <div class="form-group">
                             <label for="password">Password: </label>
-                            <input type="password" class="form-control" id="password" name="password" placeholder="Password">
+                            <input type="password" class="form-control" id="password" name="password" placeholder="Password" required>
                         </div>
+                        <?php if(isset($error)) { ?>
+                            <div class="alert alert-danger" role="alert">
+                                <?php echo $error; ?>
+                            </div>
+                        <?php } ?>
                         <button type="submit" class="btn btn-primary btn-block">Login</button>
                         <a href="signup.php" class="btn btn-outline-primary btn-block">Signup</a>
-                        
                     </form>
                 </div>
             </div>
