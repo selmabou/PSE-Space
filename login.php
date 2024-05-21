@@ -12,15 +12,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $stmt->execute();
     $user = $stmt->fetch();
 
-    if ($user && password_verify($password, $user['password'])) {
-        $_SESSION['user_id'] = $user['id']; 
-        header("Location: homepage.php"); 
+    if ($user && $password === $user['password']) { 
+        $_SESSION['user_id'] = $user['id'];
+        header("Location: homepage.php");
         exit();
     } else {
         $error = "Email or password incorrect";
     }
 }
 ?>
+
+
 
 
 <!DOCTYPE html>
