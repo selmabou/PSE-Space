@@ -90,21 +90,7 @@
           </div>
         </div>
 
-        <div class="card mt-3">
-          <div class="card-header d-flex align-items-center justify-content-between">
-            <div>
-              <img src="photos/download (2).jfif" alt="Other User Logo" class="rounded-circle-custom" style="max-width: 50px;">
-              <span>Hala MOHAMMED</span>
-            </div>
-            <div class="d-flex justify-content-end">
-              <button class="btn btn-sm btn-danger mr-2">Delete</button>
-              <button class="btn btn-sm btn-primary">Edit</button>
-            </div>
-          </div>
-          <div class="card-body">
-            <p class="card-text">Hello, this is the owner of this account. My name is Hala. I am 22 years old. My hobbies a Hello, this is the owner of this account. My name is Hala. I am 22 years old. My hobbies a  Hello, this is the owner of this account. My name is Hala. I am 22 years old. My hobbies a</p>
-          </div>
-        </div>
+       
       </div>
     </div>
   </div>

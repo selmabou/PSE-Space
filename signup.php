@@ -1,5 +1,36 @@
 <?php
 
+// $servername = "localhost";
+// $username = "root";
+// $password = "root";
+// $dbname = "psespace"; 
+
+// try {
+//     $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
+//     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+//     if ($_SERVER["REQUEST_METHOD"] == "POST") {
+//         $name = $_POST['name'];
+//         $email = $_POST['email'];
+//         $password = $_POST['password'];
+        
+        
+//         $stmt = $conn->prepare("INSERT INTO users (name, email, password) VALUES (:name, :email, :password)");
+//         $stmt->bindParam(':name', $name);
+//         $stmt->bindParam(':email', $email);
+//         $stmt->bindParam(':password', $password);
+        
+//         $stmt->execute();
+        
+//         echo "Sign up successful!";
+//     }
+// } catch(PDOException $e) {
+//     echo "Connection failed: " . $e->getMessage();
+// }
+?>
+
+
+<?php
 $servername = "localhost";
 $username = "root";
 $password = "root";
@@ -15,10 +46,12 @@ try {
         $password = $_POST['password'];
         
         
+        $hashed_password = password_hash($password, PASSWORD_DEFAULT);
+        
         $stmt = $conn->prepare("INSERT INTO users (name, email, password) VALUES (:name, :email, :password)");
         $stmt->bindParam(':name', $name);
         $stmt->bindParam(':email', $email);
-        $stmt->bindParam(':password', $password);
+        $stmt->bindParam(':password', $hashed_password);
         
         $stmt->execute();
         
@@ -28,6 +61,7 @@ try {
     //echo "Connection failed: " . $e->getMessage();
 }
 ?>
+
 
 <!DOCTYPE html>
 <html lang="en">

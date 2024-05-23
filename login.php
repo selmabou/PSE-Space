@@ -1,7 +1,11 @@
 <?php
 session_start();
-
 require_once 'connection.php';
+
+if(isset($_SESSION['user_id'])){
+    header('Location: homepage.php');
+    exit();
+}
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $email = $_POST['email'];
@@ -12,13 +16,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $stmt->execute();
     $user = $stmt->fetch();
 
-    if ($user && $password === $user['password']) { 
+    if ($user && password_verify($password, $user['password'])) { 
         $_SESSION['user_id'] = $user['id'];
         header("Location: homepage.php");
         exit();
     } else {
-        $error = "Email or password incorrect";
-    }
+        $error = "Invalid username or password.";
+    } 
 }
 ?>
 

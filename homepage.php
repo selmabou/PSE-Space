@@ -6,11 +6,7 @@ if (!isset($_SESSION['user_id'])) {
     header("Location: login.php");
     exit();
 }
-
-
 ?>
-
-
 
 <!DOCTYPE html>
 <html lang="en">
@@ -92,39 +88,15 @@ if (!isset($_SESSION['user_id'])) {
           <h5 class="ml-3">Bella QUODSSY</h5>
         </div>
         <div class="card-body">
-          <p class="card-text">Hello, this is the owner of this account. My name is Bella. I am 19 years old. My hobbies are design and reading and I work in the field of programming. This war destroyed my dreams and my home and destroyed me. I also lost many of my family members in this war. I have many dreams that I would like to achieve and I still want my family to live. And for us to live in safety. I was displaced from my home in Gaza 3 times and we were bombed twice, once in our home and once during our displacement. I do not want to die here and I want to live a life like the rest of the people. Please help me get out of this prison via the link in my bio, and if you cannot donate, share it. You will make a difference, thank you 🕊🤍.</p>
+          <p class="card-text">Hello, this is the owner of this account. My name is Bella. I am 19 years old.  I do not want to die here and I want to live a life like the rest of the people. Please help me get out of this prison via the link in my bio, and if you cannot donate, share it. You will make a difference, thank you 🕊🤍.</p>
         </div>
       </div>
     </div>
   </div>
 
-  <div class="row mt-3">
-    <div class="col-md-6 order-md-2">
-      <div class="card">
-        <div class="card-header d-flex align-items-center">
-          <img src="photos/profil.jfif" alt="Other User Logo" style="max-width: 50px;" class="rounded-circle-custom">
-          <h5 class="ml-3">Layan SAMIH</h5>
-        </div>
-        <div class="card-body">
-          <p class="card-text">Hello, I am layan, and as you can see, I am a designer and a programmer. I am from Gaza and am currently displaced in Rafah. I am trying to publish a donation link so that I can leave Gaza. Please do not let us live this nightmare in Ramadan too. We do not want bad memories of Ramadan with war to remain in our memory. Please contribute by donating. Or publish the link everywhere if you have the ability, do not fail</p>
-        </div>
-      </div>
-    </div>
-  </div>
+ 
 
-  <div class="row mt-3">
-    <div class="col-md-6 order-md-2">
-      <div class="card">
-        <div class="card-header d-flex align-items-center">
-          <img src="photos/man.jpg" alt="Other User Logo" style="max-width: 50px;" class="rounded-circle-custom">
-          <h5 class="ml-3">Saleh ABDLMOTTALIB</h5>
-        </div>
-        <div class="card-body">
-          <p class="card-text">Family to live. And for us to live in safety. I was displaced from my home in Gaza 3 times and we were bombed twice, once in our home and once during our displacement. I do not want to die here and I want to live a life like the rest of the people. Please help me get out of this prison via the link in my bio, and if you cannot donate, share it. You will make a difference, thank you</p>
-        </div>
-      </div>
-    </div>
-  </div>
+  
 </div>
 <br><br>
 
