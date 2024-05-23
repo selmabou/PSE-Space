@@ -53,7 +53,6 @@ if (!isset($_SESSION['user_id'])) {
     </div>
   </nav>
 
-  
 <div class="container mt-5">
   <div class="row">
     <div class="col-md-6 order-md-2">
@@ -94,12 +93,9 @@ if (!isset($_SESSION['user_id'])) {
     </div>
   </div>
 
- 
-
-  
 </div>
 <br><br>
 
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
-<script src="https://stackpath
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
