@@ -47,7 +47,7 @@ if (!isset($_SESSION['user_id'])) {
       </ul>
       <ul class="navbar-nav">
         <li class="nav-item">
-          <a class="nav-link" href="#"><i class="fas fa-sign-out-alt"></i> Logout</a>
+          <a class="nav-link" href="logout.php"><i class="fas fa-sign-out-alt"></i> Logout</a>
         </li>
       </ul>
     </div>

@@ -34,11 +34,11 @@
           <a class="nav-link" href="#"><i class="fas fa-search"></i> Search</a>
         </li>
       </ul>
-      <ul class="navbar-nav">
+      <!-- <ul class="navbar-nav">
         <li class="nav-item">
           <a class="nav-link" href="#"><i class="fas fa-sign-out-alt"></i> Logout</a>
         </li>
-      </ul>
+      </ul> -->
     </div>
   </nav>
 
