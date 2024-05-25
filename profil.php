@@ -28,7 +28,10 @@
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav mr-auto">
         <li class="nav-item active">
-          <a class="nav-link" href="#"><i class="fas fa-home"></i> Home</a>
+          <a class="nav-link" href="homepage.php"><i class="fas "></i> Home</a>
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link" href="profil.php"><i class="fas "></i> Profil</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="#"><i class="fas fa-search"></i> Search</a>
