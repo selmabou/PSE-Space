@@ -1,3 +1,16 @@
+<?php 
+session_start();
+require_once 'connection.php';
+
+if (!isset($_SESSION['user_id'])) {
+  header("Location: login.php");
+  exit();
+}
+
+$stmt = $conn->query("SELECT * FROM posts");
+$posts = $stmt->fetchAll(PDO::FETCH_ASSOC);
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -63,40 +76,44 @@
       </div>
     </div>
 
-      <div class="col-md-8">
-        <div class="card">
-          <div class="card-header d-flex align-items-center">
+    <div class="col-md-8">
+    <div class="card">
+        <div class="card-header d-flex align-items-center">
             <img src="photos/download (2).jfif" alt="User Logo" class="rounded-circle-custom" style="max-width: 50px;">
             <h5 class="ml-3">Hala MOHAMMED</h5>
-          </div>
-          <div class="card-body">
-            <textarea class="form-control mb-3" rows="3" placeholder="Write your post here"></textarea>
-            <div class="d-flex justify-content-end">
-              <button class="btn btn-primary">Post</button>
-            </div>
-          </div>
         </div>
-
-        <div class="card mt-3">
-          <div class="card-header d-flex align-items-center justify-content-between">
-            <div>
-              <img src="photos/download (2).jfif" alt="Other User Logo" class="rounded-circle-custom" style="max-width: 50px;">
-              <span>Hala MOHAMMED</span>
-            </div>
-            <div class="d-flex justify-content-end">
-              <button class="btn btn-sm btn-danger mr-2">Delete</button>
-              <button class="btn btn-sm btn-primary">Edit</button>
-            </div>
-          </div>
-          <div class="card-body">
-            <p class="card-text">Hello, this is the owner of this account. My name is Hala. I am 22 years old. My hobbies a Hello, this is the owner of this account. My name is Hala. I am 22 years old. My hobbies a  Hello, this is the owner of this account. My name is Hala. I am 22 years old. My hobbies a</p>
-          </div>
+        <div class="card-body">
+            <form action="addPost.php" method="post">
+                <textarea class="form-control mb-3" rows="3" placeholder="Write your post here" name="post_content"></textarea>
+                <div class="d-flex justify-content-end">
+                    <button type="submit" class="btn btn-primary">Post</button>
+                </div>
+            </form>
         </div>
-
-       
-      </div>
     </div>
-  </div>
+
+    <?php foreach ($posts as $post): ?>
+    <div class="card mt-3">
+        <div class="card-header d-flex align-items-center justify-content-between">
+            <div>
+                <img src="photos/download (2).jfif" alt="Other User Logo" class="rounded-circle-custom" style="max-width: 50px;">
+                <span>Hala MOHAMMED</span>
+            </div>
+            <div class="d-flex justify-content-end">
+                <button class="btn btn-sm btn-danger mr-2">Delete</button>
+                <button class="btn btn-sm btn-primary">Edit</button>
+            </div>
+        </div>
+        <div class="card-body">
+            <p class="card-text"><?php echo $post['content']; ?></p>
+        </div>
+    </div>
+    <?php endforeach; ?>
+</div>
+
+<br><br>
+<br><br>
+
 
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
