@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Profile</title>
+  <title>update</title>
   
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
   
@@ -24,15 +24,16 @@
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav mr-auto">
         <li class="nav-item active">
-          <a class="nav-link" href="#"><i ></i> Home</a>
+          <a class="nav-link" href="homepage.php"><i ></i> Home</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#"><i class="fas fa-search"></i> Search</a>
+        <li class="nav-item active">
+          <a class="nav-link" href="profil.php"><i ></i> Profil</a>
         </li>
+        
       </ul>
       <ul class="navbar-nav">
         <li class="nav-item">
-          <a class="nav-link" href="#"><i class="fas fa-sign-out-alt"></i> Logout</a>
+        <a class="nav-link" href="#"><i class="fas fa-search"></i> Search</a>
         </li>
       </ul>
     </div>

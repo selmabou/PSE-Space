@@ -50,11 +50,6 @@ $posts = $stmt->fetchAll(PDO::FETCH_ASSOC);
           <a class="nav-link" href="#"><i class="fas fa-search"></i> Search</a>
         </li>
       </ul>
-      <!-- <ul class="navbar-nav">
-        <li class="nav-item">
-          <a class="nav-link" href="#"><i class="fas fa-sign-out-alt"></i> Logout</a>
-        </li>
-      </ul> -->
     </div>
   </nav>
 
@@ -69,6 +64,7 @@ $posts = $stmt->fetchAll(PDO::FETCH_ASSOC);
           <h5 class="card-title">Hala MOHAMMED</h5>
         </div>
         <div class="card-body">
+          <p class="card-text">She/Her</p>
           <p class="card-text">YOUR FOCUS DETERMINES YOUR REALITY </p>
           <p class="card-text"><a href="#">@halamohammed</a></p>
           
@@ -93,15 +89,20 @@ $posts = $stmt->fetchAll(PDO::FETCH_ASSOC);
     </div>
 
     <?php foreach ($posts as $post): ?>
-    <div class="card mt-3">
+      <div class="card mt-3">
         <div class="card-header d-flex align-items-center justify-content-between">
             <div>
                 <img src="photos/download (2).jfif" alt="Other User Logo" class="rounded-circle-custom" style="max-width: 50px;">
                 <span>Hala MOHAMMED</span>
             </div>
             <div class="d-flex justify-content-end">
-                <button class="btn btn-sm btn-danger mr-2">Delete</button>
-                <button class="btn btn-sm btn-primary">Edit</button>
+                <form action="deletePost.php" method="post">
+                    <input type="hidden" name="id_post" value="<?php echo $post['id_post']; ?>"> 
+                    <button type="submit" class="btn btn-sm btn-danger mr-2">Delete</button>
+                </form>
+
+                <a href="update.php" class="btn btn-sm btn-primary">Edit</a>
+                
             </div>
         </div>
         <div class="card-body">
