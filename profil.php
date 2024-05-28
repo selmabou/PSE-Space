@@ -64,8 +64,8 @@ $posts = $stmt->fetchAll(PDO::FETCH_ASSOC);
           <h5 class="card-title">Hala MOHAMMED</h5>
         </div>
         <div class="card-body">
-          <p class="card-text">She/Her</p>
-          <p class="card-text">YOUR FOCUS DETERMINES YOUR REALITY </p>
+          <p class="card-text">She/Her 🔻</p>
+          <p class="card-text"> تلك حياتنا نمْسي ونصبح عليها، ليس لدينا رفاهية هرُوبك </p>
           <p class="card-text"><a href="#">@halamohammed</a></p>
           
         </div>

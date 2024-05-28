@@ -1,3 +1,17 @@
+<?php
+session_start();
+require_once 'connection.php';
+
+
+if (!isset($_SESSION['user_id'])) {
+    header("Location: login.php");
+    exit();
+}
+
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -57,17 +71,20 @@
         <div class="card">
           <div class="card-header">
             
-            <img src="photos/download (2).jfif" alt="User Logo" class="rounded-circle-custom" style="max-width: 50px;">
-           Hala MOHAMMED
+            <img src="photos/download (2).jfif" alt="User Logo" class="rounded-circle-custom" style="max-width: 50px;"> Hala MOHAMMED
           </div>
           <div class="card-body">
-            <textarea class="form-control mb-3" rows="3" placeholder="Write your post here"></textarea>
-            <button class="btn btn-sm btn-primary">Save</button>
-            
+    
+
+          
+          <form action="editPost.php" method="post">
+              <input type="hidden" name="id_post" value="<?php echo $post_id; ?>"> 
+              <textarea class="form-control mb-3" name="new_content" rows="3" placeholder="Write new post here"></textarea>
+              <button type="submit" class="btn btn-sm btn-primary">Save</button>
+          </form> 
+
           </div>
         </div>
-       
-
   
 
   <br><br><br>

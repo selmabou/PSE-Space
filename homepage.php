@@ -61,7 +61,7 @@ $posts = $stmt->fetchAll(PDO::FETCH_ASSOC);
     <div class="col-md-5 order-md-2">
       <div class="card">
         <div class="card-body text-center">
-          <h5 class="card-title">Welcome</h5>
+          <h5 class="card-title">PSE SPACE 🔻</h5>
           <img src="photos/download (2).jfif" alt="User Photo" class="img-fluid mb-3 rounded-circle-custom" style="max-width: 100px;">
           <p class="card-text">Welcome to PSE Space</p>
         </div>
