@@ -7,6 +7,7 @@ if (!isset($_SESSION['user_id'])) {
     exit();
 }
 
+
 if (isset($_GET['id'])) {
     $post_id = $_GET['id'];
     $stmt = $conn->prepare("SELECT * FROM posts WHERE id_post = :id_post");
@@ -22,6 +23,15 @@ if (isset($_GET['id'])) {
     header("Location: profil.php");
     exit();
 }
+
+
+$stmt = $conn->prepare("SELECT name FROM users WHERE id = ?");
+$stmt->execute([$_SESSION['user_id']]);
+$user = $stmt->fetch(PDO::FETCH_ASSOC);
+
+$stmt = $conn->query("SELECT * FROM posts");
+$posts = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
 ?>
 
 <!DOCTYPE html>
@@ -72,7 +82,7 @@ if (isset($_GET['id'])) {
       <div class="col-md-8 offset-md-2">
         <div class="card">
           <div class="card-header">
-            <img src="photos/download (2).jfif" alt="User Logo" class="rounded-circle-custom" style="max-width: 50px;"> Hala MOHAMMED
+            <img src="photos/download.jpg" alt="User Logo" class="rounded-circle-custom" style="max-width: 50px;"> <?php echo $user['name']; ?>
           </div>
           <div class="card-body">
             <form action="savePost.php" method="post">

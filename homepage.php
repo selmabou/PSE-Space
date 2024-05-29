@@ -10,6 +10,14 @@ if (!isset($_SESSION['user_id'])) {
 
 $stmt = $conn->query("SELECT * FROM posts");
 $posts = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+
+$stmt = $conn->prepare("SELECT name FROM users WHERE id = ?");
+$stmt->execute([$_SESSION['user_id']]);
+$user = $stmt->fetch(PDO::FETCH_ASSOC);
+
+$stmt = $conn->query("SELECT * FROM posts");
+$posts = $stmt->fetchAll(PDO::FETCH_ASSOC);
 ?>
 
 <!DOCTYPE html>
@@ -65,7 +73,7 @@ $posts = $stmt->fetchAll(PDO::FETCH_ASSOC);
       <div class="card">
         <div class="card-body text-center">
           <h5 class="card-title">PSE SPACE 🔻</h5>
-          <img src="photos/download (2).jfif" alt="User Photo" class="img-fluid mb-3 rounded-circle-custom" style="max-width: 100px;">
+          <img src="photos/download.jpg" alt="User Photo" class="img-fluid mb-3 rounded-circle-custom" style="max-width: 100px;">
           <p class="card-text">Welcome to PSE Space</p>
         </div>
       </div>
@@ -75,8 +83,8 @@ $posts = $stmt->fetchAll(PDO::FETCH_ASSOC);
 <div class="col-md-7 order-md-1">
     <form action="submitPost.php" method="post">
         <div class="card-header d-flex align-items-center">
-          <img src="photos/download (2).jfif" alt="User Logo" style="max-width: 50px;" class="rounded-circle-custom">
-          <h5 class="ml-3">Hala MOHAMMED</h5>
+          <img src="photos/download.jpg" alt="User Logo" style="max-width: 50px;" class="rounded-circle-custom">
+          <h5 class="ml-3"><?php echo $user['name']; ?></h5>
         </div>
         <textarea name="post_content" class="form-control mb-3" rows="3" placeholder="Write your post here"></textarea>
         <button type="submit" class="btn btn-primary btn-block">Post</button>
@@ -87,8 +95,8 @@ $posts = $stmt->fetchAll(PDO::FETCH_ASSOC);
         <div class="col-md-12 order-md-1">
         <div class="card">
             <div class="card-header d-flex align-items-center">
-              <img src="photos/download (2).jfif" alt="Other User Logo" style="max-width: 50px;" class="rounded-circle-custom">
-              <h5 class="ml-3">Hala MOHAMEDD</h5>
+              <img src="photos/download.jpg" alt="Other User Logo" style="max-width: 50px;" class="rounded-circle-custom">
+              <h5 class="ml-3"><?php echo $user['name']; ?></h5>
             </div>
             <div class="card-body">
                 <p class="card-text"><?php echo $post['content']; ?></p>

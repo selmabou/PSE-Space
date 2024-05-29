@@ -9,6 +9,15 @@ if (!isset($_SESSION['user_id'])) {
 
 $stmt = $conn->query("SELECT * FROM posts");
 $posts = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+
+$stmt = $conn->prepare("SELECT name FROM users WHERE id = ?");
+$stmt->execute([$_SESSION['user_id']]);
+$user = $stmt->fetch(PDO::FETCH_ASSOC);
+
+$stmt = $conn->query("SELECT * FROM posts");
+$posts = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
 ?>
 
 <!DOCTYPE html>
@@ -62,36 +71,36 @@ $posts = $stmt->fetchAll(PDO::FETCH_ASSOC);
       <div class="col-md-4">
         <div class="card">
           <div class="card-header text-center">
-            <img src="photos/download (2).jfif" alt="User Photo" class="img-fluid mb-3 rounded-circle-custom" style="max-width: 150px;">
-            <h5 class="card-title">Hala MOHAMMED</h5>
+            <img src="photos/download.jpg" alt="User Photo" class="img-fluid mb-3 rounded-circle-custom" style="max-width: 150px;">
+            <h5 class="card-title"><?php echo $user['name']; ?></h5>
           </div>
           <div class="card-body">
             <p class="card-text">She/Her 🔻</p>
             <p class="card-text"> تلك حياتنا نمْسي ونصبح عليها، ليس لدينا رفاهية هرُوبك </p>
-            <p class="card-text"><a href="#">@halamohammed</a></p>
+            <p class="card-text"><a href="#">@<?php echo $user['name']; ?></a></p>
           </div>
         </div>
       </div>
       <div class="col-md-8">
-        <div class="card">
-          <div class="card-header d-flex align-items-center">
-            <img src="photos/download (2).jfif" alt="User Logo" class="rounded-circle-custom" style="max-width: 50px;">
-            <h5 class="ml-3">Hala MOHAMMED</h5>
-          </div>
-          <div class="card-body">
-            <form action="addPost.php" method="post">
-              <textarea class="form-control mb-3" rows="3" placeholder="Write your post here" name="post_content"></textarea>
-              <div class="d-flex justify-content-end">
-                <button type="submit" class="btn btn-primary">Post</button>
-              </div>
-            </form>
-          </div>
+          <div class="card">
+            <div class="card-header d-flex align-items-center">
+                <img src="photos/download.jpg" alt="User Logo" class="rounded-circle-custom" style="max-width: 50px;">
+                <h5 class="ml-3"><?php echo $user['name']; ?></h5>
+            </div>
+            <div class="card-body">
+                <form action="addPost.php" method="post">
+                    <textarea class="form-control mb-3" rows="3" placeholder="Write your post here" name="post_content"></textarea>
+                    <div class="d-flex justify-content-end">
+                        <button type="submit" class="btn btn-primary">Post</button>
+                    </div>
+                </form>
+            </div>
         </div>
         <?php foreach ($posts as $post): ?>
           <div class="card mt-3">
             <div class="card-header d-flex align-items-center justify-content-between">
               <div>
-                <img src="photos/download (2).jfif" alt="Other User Logo" class="rounded-circle-custom" style="max-width: 50px;">
+                <img src="photos/download.jpg" alt="Other User Logo" class="rounded-circle-custom" style="max-width: 50px;">
                 <span>Hala MOHAMMED</span>
               </div>
               <div class="d-flex justify-content-end">
