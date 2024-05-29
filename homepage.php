@@ -39,6 +39,9 @@ $posts = $stmt->fetchAll(PDO::FETCH_ASSOC);
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav mr-auto">
         <li class="nav-item active">
+          <a class="nav-link" href="homepage.php"><i class="fas "></i> PSE Space</a>
+        </li>
+        <li class="nav-item active">
           <a class="nav-link" href="homepage.php"><i class="fas "></i> Home</a>
         </li>
         <li class="nav-item active">
