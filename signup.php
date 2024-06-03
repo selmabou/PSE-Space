@@ -3,10 +3,11 @@
 $servername = "localhost";
 $username = "root";
 $password = "root";
-$dbname = "psespace"; 
+$dbname= "psespace";
+
 
 try {
-    $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
+    $conn=new PDO("mysql:host=$servername;dbname=$dbname",$username,$password);
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
     if ($_SERVER["REQUEST_METHOD"] == "POST") {

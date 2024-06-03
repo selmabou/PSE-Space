@@ -46,7 +46,7 @@ $posts = $stmt->fetchAll(PDO::FETCH_ASSOC);
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav mr-auto">
         <li class="nav-item active">
-          <a class="nav-link" href="homepage.php"><i ></i> PSE Space</a>
+          <a class="nav-link" href="homepage.php"><i ></i> PS Space</a>
         </li>
         <li class="nav-item active">
           <a class="nav-link" href="homepage.php"><i ></i> Home</a>
@@ -71,11 +71,10 @@ $posts = $stmt->fetchAll(PDO::FETCH_ASSOC);
       <div class="col-md-4">
         <div class="card">
           <div class="card-header text-center">
-            <img src="photos/download.jpg" alt="User Photo" class="img-fluid mb-3 rounded-circle-custom" style="max-width: 150px;">
+            <img src="photos/pse.jfif" alt="User Photo" class="img-fluid mb-3 rounded-circle-custom" style="max-width: 150px;">
             <h5 class="card-title"><?php echo $user['name']; ?></h5>
           </div>
           <div class="card-body">
-            <p class="card-text">She/Her 🔻</p>
             <p class="card-text"> تلك حياتنا نمْسي ونصبح عليها، ليس لدينا رفاهية هرُوبك </p>
             <p class="card-text"><a href="#">@<?php echo $user['name']; ?></a></p>
           </div>
@@ -84,7 +83,7 @@ $posts = $stmt->fetchAll(PDO::FETCH_ASSOC);
       <div class="col-md-8">
           <div class="card">
             <div class="card-header d-flex align-items-center">
-                <img src="photos/download.jpg" alt="User Logo" class="rounded-circle-custom" style="max-width: 50px;">
+                <img src="photos/pse.jfif" alt="User Logo" class="rounded-circle-custom" style="max-width: 50px;">
                 <h5 class="ml-3"><?php echo $user['name']; ?></h5>
             </div>
             <div class="card-body">
@@ -100,8 +99,8 @@ $posts = $stmt->fetchAll(PDO::FETCH_ASSOC);
           <div class="card mt-3">
             <div class="card-header d-flex align-items-center justify-content-between">
               <div>
-                <img src="photos/download.jpg" alt="Other User Logo" class="rounded-circle-custom" style="max-width: 50px;">
-                <span>Hala MOHAMMED</span>
+                <img src="photos/pse.jfif" alt="Other User Logo" class="rounded-circle-custom" style="max-width: 50px;">
+                <span><?php echo $user['name']; ?></span>
               </div>
               <div class="d-flex justify-content-end">
                 <form action="deletePost.php" method="post">

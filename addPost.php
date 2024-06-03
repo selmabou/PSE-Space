@@ -17,10 +17,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["post_content"])) {
         $datepub = date("Y-m-d H:i:s");
     }
     $stmt = $conn->prepare("INSERT INTO posts(content, datepub, id) VALUES (?, ?, ?)");
+    
+
     $stmt->execute([$post_content, $datepub, $user_id]);
 }
 
 
 header("Location: profil.php");
 exit();
+
 ?>
+
+
+
+
+

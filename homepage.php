@@ -47,7 +47,7 @@ $posts = $stmt->fetchAll(PDO::FETCH_ASSOC);
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav mr-auto">
         <li class="nav-item active">
-          <a class="nav-link" href="homepage.php"><i class="fas "></i> PSE Space</a>
+          <a class="nav-link" href="homepage.php"><i class="fas "></i> PS Space</a>
         </li>
         <li class="nav-item active">
           <a class="nav-link" href="homepage.php"><i class="fas "></i> Home</a>
@@ -72,9 +72,9 @@ $posts = $stmt->fetchAll(PDO::FETCH_ASSOC);
     <div class="col-md-5 order-md-2">
       <div class="card">
         <div class="card-body text-center">
-          <h5 class="card-title">PSE SPACE 🔻</h5>
-          <img src="photos/download.jpg" alt="User Photo" class="img-fluid mb-3 rounded-circle-custom" style="max-width: 100px;">
-          <p class="card-text">Welcome to PSE Space</p>
+          <h5 class="card-title">PS SPACE 🔻</h5>
+          <img src="photos/pse.jfif" alt="User Photo" class="img-fluid mb-3 rounded-circle-custom" style="max-width: 100px;">
+          <p class="card-text">Hello <?php echo $user['name']; ?>, welcome to PS Space</p>
         </div>
       </div>
     </div>
@@ -83,7 +83,7 @@ $posts = $stmt->fetchAll(PDO::FETCH_ASSOC);
 <div class="col-md-7 order-md-1">
     <form action="submitPost.php" method="post">
         <div class="card-header d-flex align-items-center">
-          <img src="photos/download.jpg" alt="User Logo" style="max-width: 50px;" class="rounded-circle-custom">
+          <img src="photos/pse.jfif" alt="User Logo" style="max-width: 50px;" class="rounded-circle-custom">
           <h5 class="ml-3"><?php echo $user['name']; ?></h5>
         </div>
         <textarea name="post_content" class="form-control mb-3" rows="3" placeholder="Write your post here"></textarea>
@@ -95,11 +95,12 @@ $posts = $stmt->fetchAll(PDO::FETCH_ASSOC);
         <div class="col-md-12 order-md-1">
         <div class="card">
             <div class="card-header d-flex align-items-center">
-              <img src="photos/download.jpg" alt="Other User Logo" style="max-width: 50px;" class="rounded-circle-custom">
+              <img src="photos/pse.jfif" alt="Other User Logo" style="max-width: 50px;" class="rounded-circle-custom">
               <h5 class="ml-3"><?php echo $user['name']; ?></h5>
             </div>
             <div class="card-body">
                 <p class="card-text"><?php echo $post['content']; ?></p>
+                <small><?php echo htmlspecialchars($post['datepub']); ?></small>
             </div>
         </div>
         </div>
